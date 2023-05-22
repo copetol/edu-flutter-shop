@@ -6,10 +6,17 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+  final ThemeData theme = ThemeData();
     return MaterialApp(
       title: 'MyShop',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: theme.copyWith(
+        colorScheme: theme.colorScheme.copyWith(
+          primary:  Colors.purple,
+          secondary: Colors.deepOrange,
+        ),
+        textTheme: theme.textTheme.apply(
+          fontFamily: 'Lato'
+        ) 
       ),
       home: ProductsOverviewScreen(),
     );
