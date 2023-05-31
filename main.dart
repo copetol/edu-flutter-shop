@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
   final ThemeData theme = ThemeData();
     return ChangeNotifierProvider(
-      create: (ctx) => Products(),
+      create: (_) => Products(),
       child: MaterialApp(
         title: 'MyShop',
         theme: theme.copyWith(
