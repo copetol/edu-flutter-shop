@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/cart.dart';
+import '../providers/orders.dart';
 import '../widgets/cart_item.dart' as ci;
 
 class CartScreen extends StatelessWidget {
@@ -31,7 +32,13 @@ class CartScreen extends StatelessWidget {
                   backgroundColor: Theme.of(context).colorScheme.primary
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Provider.of<Orders>(context, listen: false).addOrder(
+                      cart.items.values.toList(),
+                      cart.totalAmount
+                    );
+                    cart.clear();
+                  },
                   style: OutlinedButton.styleFrom(shape: const StadiumBorder()),
                   child: const Text('Order now'),
                   )
